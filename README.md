@@ -21,7 +21,7 @@ List all the order number, order date, product code, product name, quantity orde
 # Ans.1
 SELECT customerName,checkNumber,paymentDate,amount 
 FROM customers
-JOIN payments
+JOIN payments on customers.customerNumber = payments.customerNumber
 WHERE customers.customerNumber = 1001;
 
 # Ans.2
@@ -35,7 +35,7 @@ FROM customers
 JOIN payments
 ON customers.customerNumber = payments.customerNumber
 WHERE creditLimit > 10000 
-GROUP BY payments.amount;
+GROUP BY customerName,phone;
 
 # Ans.4
 SELECT orderdetails.orderNumber, orders.orderDate, products.productCode, orderdetails.quantityOrdered, products.buyPrice
